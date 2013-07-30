@@ -27,13 +27,12 @@ sub post_test
                 if (($session->has_tag('naostro')) || ($session->has_tag('nanecisto'))) # Program did not pass all tests, $points points
                 {
                   	$session->add_summary("* v testu byla nalezena chyba\n");
-                        $session->add_summary("* pocet bodu za funkcionalitu je: $points\n");
-
+                  	$session->add_summary("* pocet bodu za funkcionalitu je: $points\n");
                 }
-                else # Program passed all tests, 6 points
+                else # Program passed all tests, 9 points
                 {
-                        $session->add_summary("* test prosel kompletne spravne\n");
-			$session->add_summary("* pocet bodu za funkcionalitu je: 6\n");
+                    $session->add_summary("* test prosel kompletne spravne\n");
+					$session->add_summary("* pocet bodu za funkcionalitu je: 9\n");
                 }
 
                 if ($session->has_tag('valgrind')) #Valgrind check
