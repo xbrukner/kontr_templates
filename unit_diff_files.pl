@@ -5,6 +5,9 @@ my $output_file = 'output';
 my $expected_file = 'expected_output';
 my $fail_tag = "nanecisto"; #Or "naostro"
 my $detailed_output = "teacher"; #In case of all tests, this should be "both"
+if($session->run_type eq 'teacher') { #This may be ommited for "naostro"
+        $detailed_output = "both";
+}
 my $detailed_info = "Studentsky main, diff vytvoreneho souboru, vstupni soubor $input_file, vystupni soubor $output_file, ocekavany vystup $expected_file";
 
 
@@ -54,7 +57,7 @@ if($unit_test->difference->exit_value != 0)
 	$unit_test->log_tag("diff_output", "[FAIL] Vystup testovaciho vstupu se neshoduje s ocekavanym vysledkem.");
 	$unit_test->log($detailed_info, $detailed_output);
 	$unit_test->add_tag($fail_tag);
-	$unit_test->difference->log_stdout($detailed_output);
+	$unit_test->difference->log_stdout("teacher");
 	return;
 }
 

@@ -2,6 +2,9 @@ $unit_test->name('unit_series.pl');
 
 my $fail_tag = "nanecisto"; #Or "naostro"
 my $detailed_output = "teacher"; #In case of all tests, this should be "both"
+if($session->run_type eq 'teacher') { #This may be ommited for "naostro"
+        $detailed_output = "both";
+}
 my $detailed_info = ""; #Will be set for every input
 
 $unit_test->stage_file('vstup_korektny_1.csv');
